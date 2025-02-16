@@ -1,0 +1,403 @@
+@import "../styles/header/header", "../styles/footer/footer", "../styles/modal/modal";
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    @include bg();
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: Montserrat-SemiBold, sans-serif;
+    padding: 60px 82px;
+    box-sizing: border-box;
+}
+
+.main {
+
+    .hero {
+        .container {
+            @include flex-column();
+            background-image: url('../assets/images/bg/bg-ball.png'), url('../assets/images/bg/bg-snow.png');
+            background-color: $primary;
+            border-radius: 20px 20px 0 0;
+
+            .hero-info {
+                @include flex-column();
+                gap: 12px;
+                padding: 60px 0;
+                box-sizing: border-box;
+                max-width: 429px;
+
+                h4 {
+                    @include section();
+                }
+
+                h1 {
+                    @include flex-column();
+
+                    font-size: 32px;
+                    line-height: 1.5em;
+                    letter-spacing: 0.18em;
+                    text-transform: uppercase;
+                    text-align: center;
+                    color: $white;
+                }
+
+                .btn {
+                    @include btn();
+                }
+            }
+        }
+    }
+
+    .about {
+        .container {
+            @include flex();
+            justify-content: center;
+            background-image: url('../assets/images/bg/bg-snow.png');
+            background-color: $primary;
+
+            .about-wrapper {
+                @include flex();
+                justify-content: center;
+                background-color: $white;
+                width: 100%;
+                border-radius: 20px;
+
+                .about-info {
+                    width: 50%;
+                    padding: 100px 60px;
+                    box-sizing: border-box;
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;
+
+
+                    .info-wrapper {
+                        @include flex-column();
+                        align-items: flex-start;
+                        gap: 20px;
+                        max-width: 426px;
+                        padding: 60px 0;
+
+                        h4 {
+                            @include section();
+                            color: $primary;
+                        }
+
+                        .about-title {
+                            font-size: 24px;
+                            line-height: 1.52em;
+                            letter-spacing: 0.16em;
+                            text-transform: uppercase;
+                            color: $dark;
+                        }
+
+                        .about-description {
+                            font-family: Montserrat-Regular, sans-serif;
+                            font-size: 16px;
+                            line-height: 1.48em;
+                            color: $dark;
+                        }
+                    }
+                }
+
+                .about-image {
+                    width: 50%;
+                    border-radius: 20px;
+                    background-color: $white;
+                    align-self: stretch;
+                    background-size: 100% 100%;
+
+
+                    .image-wrapper {
+                        @include bg();
+                        background-image: url('../assets/images/santa.png');
+                        height: 100%;
+                        border-radius: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .slider {
+        .container {
+            @include flex-column();
+            @include bg();
+            background-image: url('../assets/images/bg/bg-snow.png');
+            gap: 20px;
+            background-color: $primary;
+            overflow-x: hidden;
+
+            .slider-info {
+                h4 {
+                    @include section();
+                    margin-bottom: 12px
+                }
+
+                h2 {
+                    @include title();
+                }
+            }
+
+            .sliders-wrapper {
+                @include flex();
+                gap: 20px;
+                flex-wrap: nowrap;
+                align-self: flex-start;
+                transition: all 0.5s linear;
+
+                .slider-item {
+                    @include flex();
+                    gap: 20px;
+
+                    span {
+                        font-size: 80px;
+                        text-transform: uppercase;
+                        text-align: center;
+                        color: $white;
+                    }
+
+                    .slider-image {
+                        @include bg();
+                        border-radius: 20px;
+                        width: 200px;
+                        height: 200px;
+                        background-image: url("../assets/images/sliders/snowman.png");
+                    }
+
+                    &:nth-child(2) {
+                        .slider-image {
+                            background-image: url("../assets/images/sliders/christmas-trees.png");
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        .slider-image {
+                            background-image: url("../assets/images/sliders/christmas-tree-ball.png");
+                        }
+                    }
+
+                    &:last-child {
+                        .slider-image {
+                            background-image: url("../assets/images/sliders/fairytale-house.png");
+                        }
+                    }
+                }
+            }
+
+            .slider-btns {
+                @include flex();
+                gap: 20px;
+                align-self: flex-end;
+
+                .slider-btn {
+                    border: 1px solid $white-40;
+                    border-radius: 20px;
+                    width: 56px;
+                    height: 56px;
+                    background-color: transparent;
+                    cursor: default;
+
+                    svg {
+                        stroke: $white-40;
+                        transition: all .3s linear;
+                    }
+
+                    &.active {
+                        border: 1px solid $white;
+                        cursor: pointer;
+                        transition: all .5s linear;
+
+                        svg {
+                            stroke: $white;
+                        }
+
+                        @media (hover: hover) and (pointer: fine) {
+                            &:hover {
+                                background-color: $white;
+
+                                svg {
+                                    stroke: $primary;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .best-gifts {
+        .container {
+            @include flex-column();
+            background-image: url('../assets/images/bg/bg-snow.png');
+            background-color: $primary;
+
+            h4 {
+                @include section();
+                display: inline-block;
+                margin-bottom: 12px;
+            }
+
+            .best-gifts-title {
+                @include title();
+                line-height: 1.4em;
+                margin-bottom: 20px;
+            }
+
+            .gift-cards-wrapper {
+                @include flex();
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+
+                .gift-card {
+
+                    @include gift-card();
+
+                }
+            }
+        }
+    }
+
+    .cta {
+        .container {
+            @include flex-column();
+            padding: 120px 82px;
+            box-sizing: border-box;
+            background-image: url('../assets/images/bg/bg-snow.png'), url('../assets/images/bg/bg-forest.png');
+            background-color: $primary;
+            border-radius: 0 0 20px 20px;
+
+            .cta-info {
+                @include flex-column();
+                gap: 20px;
+                max-width: 426px;
+                padding: 60px 0;
+                box-sizing: border-box;
+
+                .cta-title {
+                    @include title();
+                }
+
+                .btn {
+                    @include btn();
+                }
+
+                .timer-wrapper {
+                    @include flex-column();
+                    gap: 8px;
+
+                    h4 {
+                        @include section();
+                    }
+
+                    .timer {
+                        @include flex();
+                        padding: 8px 12px 12px 12px;
+                        border-radius: 20px;
+                        background-color: $white-40;
+
+                        .timer-item {
+                            @include flex-column();
+                            width: 80px;
+
+                            .count {
+                                font-size: 24px;
+                                line-height: 1.52em;
+                                letter-spacing: 0.16em;
+                                text-transform: uppercase;
+                                text-align: center;
+                                color: $white;
+                            }
+
+                            .time-unit {
+                                font-size: 12px;
+                                line-height: 1.30em;
+                                letter-spacing: 0.05em;
+                                text-transform: uppercase;
+                                text-align: center;
+                                color: $white;
+                            }
+                        }
+
+                        .border {
+                            width: 1px;
+                            height: 20px;
+                            background-color: $white-40;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 915px) {
+
+    .container {
+        padding: 60px 8px;
+        box-sizing: border-box;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .main {
+
+        .about {
+            .container {
+                padding: 60px 8px;
+                box-sizing: border-box;
+
+                .about-wrapper {
+                    .about-info {
+                        padding: 46px 60px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+
+        .cta {
+            .container {
+                padding: 120px 8px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 676px) {
+    .main {
+        .about {
+            .container {
+                .about-wrapper {
+                    @include flex-column();
+
+                    .about-info {
+                        @include flex();
+                        justify-content: center;
+                        padding: 60px 20px;
+                        width: 100%;
+
+                        .info-wrapper {
+                            padding: 0;
+                            max-width: 324px;
+                        }
+                    }
+
+                    .about-image {
+                        height: 528px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

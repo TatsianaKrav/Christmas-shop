@@ -1,0 +1,134 @@
+@import "../styles/header/header", "../styles/footer/footer", "../styles/modal/modal";
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.gifts {
+    .container {
+        @include flex-column();
+        gap: 20px;
+        max-width: 1440px;
+        margin: 0 auto;
+        font-family: Montserrat-SemiBold, sans-serif;
+        padding: 60px 82px;
+        box-sizing: border-box;
+        background-image: url("../assets/images/bg/bg-garland.png");
+        background-color: $primary;
+        background-position: top;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+
+        h1 {
+            font-size: 32px;
+            line-height: 1.50em;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-align: center;
+            color: $white;
+            max-width: 426px;
+        }
+
+        .tabs {
+            @include flex();
+            gap: 8px;
+
+            input {
+                display: none;
+
+                &:checked+label {
+                    border-radius: 12px;
+                    padding: 12px 20px;
+                    background: $white-20;
+                    cursor: default;
+                }
+            }
+
+            label {
+                @include header-item();
+                padding: 12px 20px;
+                box-sizing: border-box;
+                color: $white;
+                cursor: pointer;
+                border-radius: 12px;
+                transition: all 0.4s linear;
+
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        background-color: $white-20;
+                    }
+                }
+            }
+        }
+
+        .gift-cards-wrapper {
+            @include flex();
+            gap: 12px;
+            flex-wrap: wrap;
+
+            @media screen and (max-width: 1439px) {
+
+                justify-content: center;
+            }
+
+            .gift-card {
+                @include gift-card();
+            }
+        }
+    }
+}
+
+.up-btn {
+    @include flex();
+    justify-content: center;
+    border: 1px solid #ff4646;
+    border-radius: 100px;
+    width: 56px;
+    height: 56px;
+    background: $white;
+    position: fixed;
+    right: 8px;
+    bottom: 8px;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+
+
+@media screen and (max-width: 915px) {
+
+    .container {
+        padding: 60px 8px;
+        box-sizing: border-box;
+    }
+
+    .gifts {
+        .container {
+            padding: 60px 8px;
+        }
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .gifts {
+        .container {
+            .tabs {
+                justify-content: center;
+                gap: 0;
+
+                input {
+                    &:checked+label {
+                        padding: 12px 8px;
+                    }
+                }
+
+
+                label {
+                    padding: 12px 8px;
+                }
+            }
+        }
+    }
+}

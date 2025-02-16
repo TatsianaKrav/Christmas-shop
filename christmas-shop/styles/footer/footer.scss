@@ -1,0 +1,140 @@
+@import "../fonts/fonts", "../colors/colors", "../mixins/mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: Montserrat-SemiBold, sans-serif;
+    padding: 60px 82px;
+    box-sizing: border-box;
+}
+
+.footer {
+    .container {
+        @include flex-column();
+        gap: 60px;
+
+        .contacts {
+            @include flex();
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            @media screen and (max-width: 1438px) {
+                @include flex();
+                flex-wrap: wrap;
+
+                .contact-card {
+                    width: 100%;
+
+                    .contact {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .contact-card {
+                @include flex-column();
+                gap: 12px;
+                padding: 20px;
+                box-sizing: border-box;
+                border-radius: 20px;
+                background: $bg;
+                text-decoration: none;
+
+                &:nth-child(2) {
+                    img {
+                        position: static !important;
+                    }
+                }
+
+                .contact {
+                    font-size: 24px;
+                    line-height: 1.52em;
+                    letter-spacing: 0.16em;
+                    text-transform: uppercase;
+                    text-align: center;
+                    color: $dark;
+                    width: 377px;
+                    transition: all 0.3s linear;
+                }
+
+                span {
+                    font-size: 16px;
+                    line-height: 1.52em;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    text-align: center;
+                    color: $dark;
+                    transition: all 0.3s linear;
+
+                    @media screen and (max-width: 435px) {
+                        max-width: 324px;
+                    }
+                }
+
+                @media (hover: hover) and (pointer: fine) {
+
+                    &:hover span {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+
+        .footer-info {
+            @include flex-column();
+            gap: 12px;
+
+            .socials {
+                @include flex();
+                gap: 12px;
+
+                a {
+                    @include flex-column();
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+
+                    svg {
+                        transition: all .3s linear;
+                        stroke: #181C29;
+                    }
+
+                    @media (hover: hover) and (pointer: fine) {
+                        &:hover svg {
+                            stroke: $primary;
+                        }
+                    }
+                }
+            }
+
+            p {
+                font-family: Montserrat-Regular, sans-serif;
+                font-size: 16px;
+                line-height: 1.48em;
+                text-align: center;
+                color: $dark;
+            }
+
+            a {
+                @include section();
+                color: $dark;
+                font-weight: 400;
+                text-decoration: none;
+                transition: all 0.3s linear;
+
+                @media (hover: hover) and (pointer: fine) {
+                    &:hover {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}

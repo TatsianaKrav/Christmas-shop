@@ -1,0 +1,173 @@
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(../assets/fonts/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: Allura-Regular;
+  src: url(../assets/fonts/Allura-Regular.otf);
+}
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url(../assets/fonts/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url(../assets/fonts/Montserrat-SemiBold.ttf);
+}
+@font-face {
+  font-family: Allura-Regular;
+  src: url(../assets/fonts/Allura-Regular.otf);
+}
+.modal-wrapper {
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(24, 28, 41, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  font-family: Montserrat-Regular, sans-serif;
+  cursor: pointer;
+  transition: all 0.7s ease;
+}
+.modal-wrapper .modal-window {
+  cursor: default;
+  position: relative;
+}
+.modal-wrapper .modal-window .close-modal {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+}
+.modal-wrapper .modal-window .gift-card {
+  border-radius: 20px;
+  width: 310px;
+  cursor: pointer;
+  background-color: #ecf3f8;
+  width: 400px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-image {
+  background-color: #ecf3f8;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: 230px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-image img {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info {
+  padding: 20px 20px 0 20px;
+  box-sizing: border-box;
+  height: 112px;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-purpose {
+  font-size: 12px;
+  line-height: 1.3em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #4361FF;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-purpose.health {
+  color: #06A44F;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-purpose.harmony {
+  color: #FF43F7;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info h3 {
+  font-size: 16px;
+  line-height: 1.52em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #181C29;
+  transition: all 0.3s linear;
+}
+@media (hover: hover) and (pointer: fine) {
+  .modal-wrapper .modal-window .gift-card:hover .gift-card-info h3 {
+    color: #FF4646;
+  }
+}
+@media screen and (max-width: 420px) {
+  .modal-wrapper .modal-window .gift-card {
+    width: 365px;
+  }
+}
+.modal-wrapper .modal-window .gift-card .gift-card-image {
+  height: 230px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-image img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info {
+  height: auto;
+  padding-bottom: 20px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-purpose {
+  font-family: Montserrat-SemiBold, sans-serif;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-card-title {
+  font-family: Montserrat-SemiBold, sans-serif;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-description {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.48em;
+  color: #181C29;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-super {
+  margin-top: 20px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-super .super-title {
+  font-family: Montserrat-SemiBold, sans-serif;
+  font-size: 12px;
+  line-height: 1.3em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #181C29;
+  margin-bottom: 8px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-super .powerds .power {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 1.48em;
+  color: #181C29;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-super .powerds .power .power-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 12px;
+  flex-shrink: 0;
+  width: 164px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-super .powerds .power .power-info .snowflakes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+}
+.modal-wrapper .modal-window .gift-card .gift-card-info .gift-super .powerds .power .power-info .snowflakes .inactive {
+  opacity: 10%;
+}/*# sourceMappingURL=modal.css.map */

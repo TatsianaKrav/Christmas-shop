@@ -1,0 +1,111 @@
+@import "../fonts/fonts", "../colors/colors", "../mixins/mixins";
+
+.modal-wrapper {
+    position: fixed;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: rgba(24, 28, 41, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    font-family: Montserrat-Regular, sans-serif;
+    cursor: pointer;
+    transition: all 0.7s ease;
+
+    .modal-window {
+        cursor: default;
+        position: relative;
+
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            cursor: pointer;
+        }
+
+        .gift-card {
+            @include gift-card();
+            width: 400px;
+            box-sizing: border-box;
+            pointer-events: none;
+
+            @media screen and (max-width: 420px) {
+                width: 365px;
+            }
+
+            .gift-card-image {
+                height: 230px;
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .gift-card-info {
+                height: auto;
+                padding-bottom: 20px;
+
+                .gift-purpose {
+                    font-family: Montserrat-SemiBold, sans-serif;
+                }
+
+                .gift-card-title {
+                    font-family: Montserrat-SemiBold, sans-serif;
+                }
+
+                .gift-description {
+                    margin-top: 8px;
+                    font-size: 16px;
+                    line-height: 1.48em;
+                    color: $dark;
+                }
+
+                .gift-super {
+                    margin-top: 20px;
+
+                    .super-title {
+                        font-family: Montserrat-SemiBold, sans-serif;
+                        font-size: 12px;
+                        line-height: 1.3em;
+                        letter-spacing: 0.05em;
+                        text-transform: uppercase;
+                        color: $dark;
+                        margin-bottom: 8px;
+                    }
+
+                    .powerds {
+                        .power {
+                            @include flex();
+                            font-size: 16px;
+                            line-height: 1.48em;
+                            color: $dark;
+
+                            .power-info {
+                                @include flex();
+                                justify-content: flex-start;
+                                gap: 12px;
+                                flex-shrink: 0;
+                                width: 164px;
+
+                                .snowflakes {
+                                    @include flex();
+                                    gap: 9px;
+
+                                    .inactive {
+                                        opacity: 10%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,168 @@
+@import "../fonts/fonts", "../colors/colors", "../mixins/mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-family: Montserrat-SemiBold, sans-serif;
+}
+
+.header {
+    .container {
+        @include flex();
+        padding: 12px 82px;
+        box-sizing: border-box;
+
+        .logo {
+            @include flex();
+            gap: 8px;
+            padding: 8px 20px;
+            text-decoration: none;
+            box-sizing: border-box;
+            z-index: 5;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+
+            span {
+                @include header-item();
+            }
+        }
+
+        .space {
+            width: 12px;
+            height: 12px;
+        }
+
+        nav {
+            flex-shrink: 0;
+
+            .menu {
+                @include flex();
+                gap: 8px;
+                list-style: none;
+
+                .menu-item {
+                    @include flex();
+                    justify-content: center;
+
+                    a {
+                        @include header-item();
+                        padding: 12px 20px;
+                        box-sizing: border-box;
+                        text-decoration: none;
+                        transition: all .3s linear;
+                    }
+
+                    @media (hover: hover) and (pointer: fine) {
+                        &:hover:not(.active) {
+                            a {
+                                color: $primary;
+                                background-color: $primary-10;
+                                border-radius: 12px;
+                            }
+                        }
+                    }
+
+                    &.active {
+                        a {
+                            color: $primary;
+                            background-color: $primary-10;
+                            border-radius: 12px;
+                            cursor: default;
+                        }
+                    }
+                }
+            }
+        }
+
+        .burger {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            position: relative;
+            display: none;
+            z-index: 5;
+
+            &::before {
+                @include burger();
+                top: 16px;
+            }
+
+            &::after {
+                @include burger();
+                bottom: 16px;
+            }
+
+            &.opened {
+                &::before {
+                    transform: rotate(45deg);
+                    top: 20px;
+                }
+
+                &::after {
+                    transform: rotate(-45deg);
+                    bottom: 19px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        .container {
+            padding: 12px 8px;
+            box-sizing: border-box;
+
+            nav {
+                @include flex();
+                justify-content: center;
+                position: fixed;
+                opacity: 0;
+                visibility: hidden;
+                z-index: 4;
+                width: 100%;
+                height: 100dvh;
+                margin: 0;
+                top: 0;
+                right: -100%;
+                padding-top: 36px;
+                background-color: $white;
+                transition: all .5s linear;
+
+                .menu {
+                    @include flex-column();
+                }
+
+                &.showed {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateX(-100%);
+
+                    .menu {
+                        li {
+                            a {
+                                font-size: 24px;
+                                line-height: 1.5em;
+                                letter-spacing: 0.16em;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            .burger {
+                display: block;
+            }
+        }
+    }
+}
